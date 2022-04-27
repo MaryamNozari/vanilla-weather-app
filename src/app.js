@@ -56,6 +56,12 @@ function showTemp(response) {
   ).innerHTML = `wind: ${response.data.wind.speed}mph`;
   let li = document.querySelector("#date");
   li.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 // function showCity(event) {
 //   event.preventDefault();
