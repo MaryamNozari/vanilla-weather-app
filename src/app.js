@@ -1,43 +1,45 @@
-let now = new Date();
-let currentDay = now.getDay();
-let currentMonth = now.getMonth();
-let currentDate = now.getDate();
-let currentHour = now.getHours();
-if (currentHour < 10) {
-  currentHour = `0${currentHour}`;
+function formatDate() {
+  let now = new Date();
+  let currentDay = now.getDay();
+  let currentMonth = now.getMonth();
+  let currentDate = now.getDate();
+  let currentHour = now.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMinute = now.getMinutes();
+  if (currentMinute < 10) {
+    currentMinute = `0${currentMinute}`;
+  }
+
+  let day = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let month = [
+    "Jan",
+    "Feb",
+    "March",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  //let li = document.querySelector("#date");
+  return `${day[currentDay]} , ${month[currentMonth]} ${currentDate} ${currentHour}:${currentMinute}`;
 }
-let currentMinute = now.getMinutes();
-if (currentMinute < 10) {
-  currentMinute = `0${currentMinute}`;
-}
-
-let day = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let month = [
-  "Jan",
-  "Feb",
-  "March",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-let li = document.querySelector("#date");
-li.innerHTML = `${day[currentDay]} , ${month[currentMonth]} ${currentDate} ${currentHour}:${currentMinute}`;
 
 function showTemp(response) {
   document.querySelector("h2").innerHTML = response.data.name;
@@ -52,6 +54,8 @@ function showTemp(response) {
   document.querySelector(
     "#wind-speed"
   ).innerHTML = `wind: ${response.data.wind.speed}mph`;
+  let li = document.querySelector("#date");
+  li.innerHTML = formatDate(response.data.dt * 1000);
 }
 // function showCity(event) {
 //   event.preventDefault();
