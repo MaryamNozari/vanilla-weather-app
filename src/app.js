@@ -61,7 +61,10 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemprature = response.data.main.temp;
 }
 // function showCity(event) {
 //   event.preventDefault();
@@ -90,16 +93,31 @@ function handelSubmit(event) {
 let form = document.querySelector(".form-inline");
 form.addEventListener("submit", handelSubmit);
 //challenge #3
-// function ChangeUnitF(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector("#temp-number");
-//   let temprature = temp.innerHTML;
-//   temprature = Number(temprature);
-//   temp.innerHTML = Math.round((temprature * 9) / 5 + 32);
-// }
+function ChangeUnitF(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp-number");
+  let temprature = temp.innerHTML;
+  temprature = Number(temprature);
+  temp.innerHTML = Math.round((celsiusTemprature * 9) / 5 + 32);
+  celsiusTemp.classList.remove("active");
+  farenhietTemp.classList.add("active");
+}
 
-// let farenhietTemp = document.querySelector("#farenhiet");
-// farenhietTemp.addEventListener("click", ChangeUnitF);
+let farenhietTemp = document.querySelector("#farenhiet");
+farenhietTemp.addEventListener("click", ChangeUnitF);
+
+function ChangeUnitC(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp-number");
+  temp.innerHTML = Math.round(celsiusTemprature);
+  farenhietTemp.classList.remove("active");
+  celsiusTemp.classList.add("active");
+}
+
+let celsiusTemp = document.querySelector("#celsius");
+celsiusTemp.addEventListener("click", ChangeUnitC);
+
+let celsiusTemprature = null;
 
 //let city = document.querySelector("#city");
 //let city = inputCity.value;
