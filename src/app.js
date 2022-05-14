@@ -40,6 +40,35 @@ function formatDate() {
   //let li = document.querySelector("#date");
   return `${day[currentDay]} , ${month[currentMonth]} ${currentDate} ${currentHour}:${currentMinute}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+           <div class="col-2">
+               <ul>
+                  <li class="forecast_day">
+                      ${day}
+                  </li>
+                <li class="forecast_image">
+                      <img class="wob_tci" alt="Clear with periodic clouds" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" id="wob_tci" data-atf="1" data-frt="0" />
+                </li>
+                <li class="'forecast_temprature">
+                    <span class="max_temp">12&#176 </span> 
+                    <span class="min_temp">6&#176</span>
+                </li>  
+               </ul>
+           
+                
+            </div>
+        `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function showTemp(response) {
   document.querySelector("h2").innerHTML = response.data.name;
@@ -138,3 +167,4 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", showLocation);
 
 searchCity("New York");
+displayForecast();

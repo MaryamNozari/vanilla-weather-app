@@ -31,7 +31,7 @@ body {
   margin: 0 auto;
   margin-bottom: 10px;
 }
-.bottomSection {
+.weather_forecast {
   margin: 20px;
   border: 1px solid #87758f;
   border-radius: 10px;
@@ -81,4 +81,13 @@ body {
 
 .active:hover {
   text-decoration: none;
+}
+
+.forecast_day {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.min_temp {
+  opacity: 0.5;
 }
