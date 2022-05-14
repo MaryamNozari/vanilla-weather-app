@@ -3,12 +3,18 @@ h1 {
 }
 h2 {
   margin-left: 40px;
-  color: #87758f;
-  font-family: sans-serif;
+  /* color: #004445; */
+  color: #111515;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 li {
   list-style-type: none;
-  text-transform: capitalize;
+  font-size: 20px;
 }
 body {
   font-family: sans-serif;
@@ -21,23 +27,24 @@ body {
   display: block;
   margin: 0 auto;
   margin-bottom: 10px;
+  background: linear-gradient(
+    109.6deg,
+    rgb(17, 151, 147) 11.2%,
+    rgb(154, 214, 212) 55.4%,
+    rgb(255, 233, 171) 100.2%
+  );
+
+  height: 520px;
 }
-.middleSection {
-  margin: 20px;
-  border: 1px solid #87758f;
-  border-radius: 10px;
-  max-width: 900px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
+
 .weather_forecast {
   margin: 20px;
-  border: 1px solid #87758f;
-  border-radius: 10px;
+  /* border: 1px solid #87758f;
+  border-radius: 10px; */
   max-width: 900px;
   display: block;
   margin: 0 auto;
+  margin-top: 60px;
 }
 .form-inline {
   display: block;
@@ -46,26 +53,26 @@ body {
 }
 
 #current-location {
-  color: #28a745;
-  border-color: #28a745;
+  color: white;
+  border-color: #004445;
   display: inline-block;
   font-weight: 400;
-  background-color: white;
+  background-color: #004445;
   text-align: center;
   vertical-align: middle;
 
-  border: 1px solid #28a745;
+  border: 1px solid #004445;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
 }
 #current-location:hover {
-  background-color: #28a745;
-  color: white;
+  background-color: transparent;
+  color: #004445;
   cursor: pointer;
   transition: 200ms ease-in-out;
-  border-color: #28a745;
+  border-color: #004445;
 }
 
 #github_link {
@@ -84,10 +91,58 @@ body {
 }
 
 .forecast_day {
+  padding-left: 35px;
   font-size: 16px;
   opacity: 0.6;
 }
 
 .min_temp {
   opacity: 0.5;
+}
+
+.forecast_temprature {
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+
+#input-city {
+  width: 45%;
+  margin-left: 20px;
+}
+
+.container {
+  margin-top: 30px;
+  font-family: "Times New Roman", Times, serif, Helvetica, Arial, sans-serif;
+}
+#search-btn {
+  border-color: #004445;
+  color: white;
+  background-color: #004445;
+}
+#search-btn:hover {
+  background-color: transparent;
+  color: #004445;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  border-color: #004445;
+}
+.main-image {
+  width: 150px;
+  margin-top: 25px;
+}
+#temp-number {
+  font-size: 34px;
+  position: relative;
+  top: 25px;
+  font-weight: bold;
+}
+#celsius-degree {
+  position: relative;
+  font-size: 20px;
+  top: 10px;
+}
+#date {
+  color: #ffff08;
+  margin-bottom: 30px;
+  font-weight: bold;
 }

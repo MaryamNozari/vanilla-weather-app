@@ -59,24 +59,24 @@ function displayForecast(response) {
         forecastHTML +
         `
            <div class="col-2">
-               <ul>
-                  <li class="forecast_day">
+               
+                  <div class="forecast_day">
                       ${formatDay(forecastDay.dt)}
-                  </li>
-                <li class="forecast_image">
-                      <img class="wob_tci" alt="Clear with periodic clouds" src="http://openweathermap.org/img/wn/${
+                  </div>
+                
+                      <img class="wob_tci forecast_image" alt="Clear with periodic clouds" src="http://openweathermap.org/img/wn/${
                         forecastDay.weather[0].icon
                       }@2x.png" id="wob_tci" data-atf="1" data-frt="0" />
-                </li>
-                <li class="'forecast_temprature">
+               
+                <div class="forecast_temprature">
                     <span class="max_temp">${Math.round(
                       forecastDay.temp.max
                     )}&#176 </span> 
                     <span class="min_temp">${Math.round(
                       forecastDay.temp.min
                     )}&#176</span>
-                </li>  
-               </ul>
+                </div>  
+               
            
                 
             </div>
@@ -104,7 +104,7 @@ function showTemp(response) {
   ).innerHTML = `humidity: ${response.data.main.humidity}%`;
   document.querySelector(
     "#wind-speed"
-  ).innerHTML = `wind: ${response.data.wind.speed}mph`;
+  ).innerHTML = `wind: ${response.data.wind.speed} km/h`;
   let li = document.querySelector("#date");
   li.innerHTML = formatDate(response.data.dt * 1000);
   let iconElement = document.querySelector("#icon");

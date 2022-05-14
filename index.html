@@ -15,24 +15,25 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="" container>
-      <h1>Hello World!</h1>
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
+    <div class="container" >
+        <div class="topSection">
+      <h1></h1>
+      <!-- <nav class="navbar navbar-light bg-light"> -->
+        <form class="form-inline mb-3">
           <input id="input-city"
-            class="form-control mr-sm-2"
+            class="form-control"
             type="search"
             placeholder="Which City?"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-          <button id = "current-location">Current Location</button>
+          <input type="submit" value="Search" id ="search-btn" class="btn btn-outline-success my-2 my-sm-0" />
+            
+          
+          <button class= "btn btn-outline-success my-2 my-sm-0" id = "current-location">Current Location</button>
         </form>
-      </nav>
+      <!-- </nav> -->
       
-      <div class="topSection">
+      
       <h2 id = "city-name">
           Paris
       </h2>
@@ -41,31 +42,43 @@
          <div class="col-6">
           <ul>
             <li id="date">Monday, March 28th</li>
-            <li class="'current_image">
+            <li id="description">description</li>
+            <li id="humidity">humidity: 24%</li>
+            <li id="wind-speed">wind: 7 km/h</li>
+            <!-- <li class="'current_image">
                 <img class="wob_tci" alt="weather image" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" id="icon" data-atf="1" data-frt="0" />
                 <span>
                     <span id="temp-number">7</span>
                     °C
+                     <a id="celsius"href="" class="active">°C</a>
+
+                    <a id = "farenhiet" href="">°F </a> -->
+                <!-- </span>
+            </li> -->
+                 
+          </ul>
+        </div>
+        <div class="col-6">
+             <!-- <li class="current_image"> -->
+                <img class="wob_tci main-image" alt="weather image" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" id="icon" data-atf="1" data-frt="0" />
+                <span>
+                    <span id="temp-number">7</span>
+                   <span id="celsius-degree">°C</span> 
                     <!-- <a id="celsius"href="" class="active">°C</a>
 
                     <a id = "farenhiet" href="">°F </a> -->
                 </span>
-            </li>
-                
-          </ul>
-        </div>
-        <div class="col-6">
-          <ul>
+            <!-- </li> -->
+          <!-- <ul>
             <li id="description">description</li>
             <li id="humidity">humidity: 24%</li>
             <li id="wind-speed">wind: 7mph</li>
-          </ul>
+          </ul> -->
         </div> 
       </div>
+      <div class="weather_forecast" id = "forecast"></div>
       </div>
-       <div class="weather_forecast" id = "forecast">
-      
-        </div>
+       
     
       <!-- <div class="middleSection">
       <div class="row">
@@ -201,7 +214,7 @@
       </div>
       </div> -->
       <!-- <br /> -->
-      <a id="github_link" href="https://github.com/MaryamNozari/weather_app" alt="'github link" target="_blank">github link</a>
+      <a id="github_link" href="https://github.com/MaryamNozari/weather_app" alt="'github link" target="_blank">Github link</a>
    
     <script src = "src/app.js"></script>
   </body>
