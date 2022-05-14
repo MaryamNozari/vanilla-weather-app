@@ -146,31 +146,31 @@ function handelSubmit(event) {
 let form = document.querySelector(".form-inline");
 form.addEventListener("submit", handelSubmit);
 //challenge #3
-function ChangeUnitF(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp-number");
-  let temprature = temp.innerHTML;
-  temprature = Number(temprature);
-  temp.innerHTML = Math.round((celsiusTemprature * 9) / 5 + 32);
-  celsiusTemp.classList.remove("active");
-  farenhietTemp.classList.add("active");
-}
+// function ChangeUnitF(event) {
+//   event.preventDefault();
+//   let temp = document.querySelector("#temp-number");
+//   let temprature = temp.innerHTML;
+//   temprature = Number(temprature);
+//   temp.innerHTML = Math.round((celsiusTemprature * 9) / 5 + 32);
+//   celsiusTemp.classList.remove("active");
+//   farenhietTemp.classList.add("active");
+// }
 
-let farenhietTemp = document.querySelector("#farenhiet");
-farenhietTemp.addEventListener("click", ChangeUnitF);
+// let farenhietTemp = document.querySelector("#farenhiet");
+// farenhietTemp.addEventListener("click", ChangeUnitF);
 
-function ChangeUnitC(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp-number");
-  temp.innerHTML = Math.round(celsiusTemprature);
-  farenhietTemp.classList.remove("active");
-  celsiusTemp.classList.add("active");
-}
+// function ChangeUnitC(event) {
+//   event.preventDefault();
+//   let temp = document.querySelector("#temp-number");
+//   temp.innerHTML = Math.round(celsiusTemprature);
+//   farenhietTemp.classList.remove("active");
+//   celsiusTemp.classList.add("active");
+// }
 
-let celsiusTemp = document.querySelector("#celsius");
-celsiusTemp.addEventListener("click", ChangeUnitC);
+// let celsiusTemp = document.querySelector("#celsius");
+// celsiusTemp.addEventListener("click", ChangeUnitC);
 
-let celsiusTemprature = null;
+// let celsiusTemprature = null;
 
 //let city = document.querySelector("#city");
 //let city = inputCity.value;
