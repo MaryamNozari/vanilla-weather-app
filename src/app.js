@@ -40,40 +40,56 @@ function formatDate() {
   //let li = document.querySelector("#date");
   return `${day[currentDay]} , ${month[currentMonth]} ${currentDate} ${currentHour}:${currentMinute}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 function displayForecast(response) {
+  let forecast = response.data.daily;
   console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  //let days = ["Tue", "Wed", "Thu"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
            <div class="col-2">
                <ul>
                   <li class="forecast_day">
-                      ${day}
+                      ${formatDay(forecastDay.dt)}
                   </li>
                 <li class="forecast_image">
-                      <img class="wob_tci" alt="Clear with periodic clouds" src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png" id="wob_tci" data-atf="1" data-frt="0" />
+                      <img class="wob_tci" alt="Clear with periodic clouds" src="http://openweathermap.org/img/wn/${
+                        forecastDay.weather[0].icon
+                      }@2x.png" id="wob_tci" data-atf="1" data-frt="0" />
                 </li>
                 <li class="'forecast_temprature">
-                    <span class="max_temp">12&#176 </span> 
-                    <span class="min_temp">6&#176</span>
+                    <span class="max_temp">${Math.round(
+                      forecastDay.temp.max
+                    )}&#176 </span> 
+                    <span class="min_temp">${Math.round(
+                      forecastDay.temp.min
+                    )}&#176</span>
                 </li>  
                </ul>
            
                 
             </div>
         `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  let apiKey = "a19149d935a95bd92d19c439727ab1de";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(coordinates);
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 function showTemp(response) {
